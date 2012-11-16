@@ -1,4 +1,4 @@
-import junar_api
+from junar import ApiClient
 
 if __name__ == '__main__':
     # display dates related to proposed law at Chilean senado
@@ -6,7 +6,7 @@ if __name__ == '__main__':
 
     # get an auth_key at www.junar.com/developers/
     auth_key = 'yourauthkeyhere'
-    junar_api_client = junar_api.Junar(auth_key)
+    junar_api_client = ApiClient(auth_key)
 
     # the guid (identificator)
     datastream = junar_api_client.datastream(guid)

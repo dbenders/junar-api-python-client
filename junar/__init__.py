@@ -3,7 +3,7 @@ try: import simplejson as json
 except ImportError: import json
 import decimal
 
-class Junar:
+class ApiClient:
     """ Base class, contains the configuration"""
     def __init__(self, auth_key, base_uri = 'http://apisandbox.junar.com'):
         self.auth_key = auth_key

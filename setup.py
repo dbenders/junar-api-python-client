@@ -8,7 +8,7 @@ setup(
     author_email='joaquin.nunez@junar.com',
     url='https://github.com/joaquinnunez/junar-api-python-client',
     license='MIT License since v0.0.1',
-    packages=['junar_api'],
+    packages=['junar'],
     description='Unofficial API Python Client implementation for the Junar.com API, ' + \
                 'a service to collect, organize, use and share data.',
     long_description=open('README.md').read(),
