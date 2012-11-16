@@ -1,12 +1,12 @@
 import time
-import junar_api
+from junar import ApiClient
 
 if __name__ == '__main__':
     # mixing data about chilean nacional security
 
     # get an auth_key at www.junar.com/developers/
     auth_key = 'yourauthkey'
-    junar_api_client = junar_api.Junar(auth_key)
+    junar_api_client = ApiClient(auth_key)
 
     # the guid (identificator)
     datastream = junar_api_client.datastream('SEGUR-EN-TASA-DE-DENUN')
