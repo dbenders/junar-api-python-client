@@ -6,7 +6,7 @@ setup(
     version='0.1',
     author=u'Joaquín Nuñez',
     author_email='joaquin.nunez@junar.com',
-    url='https://github.com/joaquinnunez/junar-api-python-client',
+    url='https://github.com/Junar/junar-api-python-client',
     license='MIT License since v0.0.1',
     packages=['junar'],
     description='Unofficial API Python Client implementation for the Junar.com API, ' + \
