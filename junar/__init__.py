@@ -16,7 +16,6 @@ class ApiClient:
         guid -- the guid of the datastream"""
         return DataStream(guid, self.auth_key, self.base_uri)
 
-
 class DataStream:
 
     def __init__(self, guid, auth_key, base_uri):
@@ -31,7 +30,8 @@ class DataStream:
         self.base_uri = base_uri
         self.guid = guid
         self.response = None
-        self.output = '';
+        self.output = ''
+        self.type = 'datastreams'
 
     def invoke(self, params = [], output = '', page = None, limit = None):
         """
@@ -74,14 +74,19 @@ class DataStream:
             self.output = output
             query['output'] = output
 
-        url = '/datastreams/invoke/%s?%s' % (self.guid, urllib.urlencode(query))
+        if self.guid in ['last','top']:
+            if isinstance(limit, int):
+                query['max_results'] = limit
+            url = '/%s/%s?%s' % (self.type, self.guid, urllib.urlencode(query))
+        else:
+            url = '/%s/invoke/%s?%s' % (self.type, self.guid, urllib.urlencode(query))
         return self._call_uri(url);
 
     def info(self):
         """ Gets the datastream's metadata. """
         # create the URL
         query = {'auth_key': self.auth_key}
-        url = '/datastreams/invoke/%s?%s' % (self.guid, urllib.urlencode(query))
+        url = '/%s/invoke/%s?%s' % (self.type, self.guid, urllib.urlencode(query))
         return self._call_uri(url);
 
     def _call_uri(self, url):
